@@ -1,4 +1,4 @@
-package main
+package example
 
 import (
 	"fmt"
@@ -21,7 +21,7 @@ func main() {
 		file, _ := c.FormFile("file")
 		log.Println(file.Filename)
 
-		dst := "upload" + file.Filename
+		dst := "./upload/" + file.Filename
 		// 上传文件至指定的完整文件
 		c.SaveUploadedFile(file, dst)
 		c.String(http.StatusOK, fmt.Sprintf("'%s' uploaded!", file.Filename))
